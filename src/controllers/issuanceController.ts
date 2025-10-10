@@ -6,7 +6,6 @@ const worker_Id = `worker-${Math.floor(Math.random() * 1000)}`;
 export const IssueCredential = async(req :any,res:any) => {
         try {
             const {fullname,email} = req.body
-
             
             const exists = await Credential.findOne({email})
             if(exists){
@@ -17,8 +16,6 @@ export const IssueCredential = async(req :any,res:any) => {
                 })
             }
 
-           
-
             const newCredentials = new Credential({
                 fullname,
                 email,
@@ -28,8 +25,6 @@ export const IssueCredential = async(req :any,res:any) => {
             })
 
             await newCredentials.save()
-
-            
 
             console.log(newCredentials,'Credentials stored')
             res.status(200).json({message:`Credentials issued by ${worker_Id}`,newCredentials,success:true})
