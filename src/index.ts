@@ -1,6 +1,6 @@
 import express from "express";
 import cors from 'cors'
-import issuanceRoot from '../src/routes/issuanceRoutes.js'
+import issuanceRoot from './routes/issuanceRoutes.js'
 import './config.js'
 import dotenv from 'dotenv'
 const app = express();

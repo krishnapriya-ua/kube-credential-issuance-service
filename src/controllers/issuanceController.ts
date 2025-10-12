@@ -1,16 +1,16 @@
-
+// @ts-ignore
 import { Credential } from "../model/credential.js";
 
-const worker_Id = `worker-${Math.floor(Math.random() * 1000)}`;
+
 
 export const IssueCredential = async(req :any,res:any) => {
         try {
             const {fullname,email} = req.body
-            
+            const worker_Id = `worker-${Math.floor(Math.random() * 10)+1}`;
             const exists = await Credential.findOne({email})
             if(exists){
                 return res.status(200).json({
-                    message:`Credential already issued by ${exists.workerId}`,
+                    message:`A Credential with this email is already issued by ${exists.workerId}`,
                     success:false,
                     credentials:exists
                 })
