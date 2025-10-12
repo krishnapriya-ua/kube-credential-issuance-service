@@ -40,6 +40,11 @@ Run service:
 npx tsx src/index.ts
 
 
+To get dist folder [important for if you are using docker]
+
+npx tsc
+node .\dist\index.js
+
 
 .env configuration
 MONGOURI = your mongodburi
