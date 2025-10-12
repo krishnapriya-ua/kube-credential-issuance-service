@@ -40,10 +40,10 @@ Run service:
 npx tsx src/index.ts
 
 
-The service listens on the port defined by process.env.PORT or defaults to 3000.
-Also 
-.env file add
+
+.env configuration
 MONGOURI = your mongodburi
+PORT = port number
 
 🧪 Unit Testing
 
@@ -60,6 +60,8 @@ npm run test
 import Credential from './Credential.js';
 // To
 import Credential from './Credential';
+
+
 
 🐳 Docker
 
