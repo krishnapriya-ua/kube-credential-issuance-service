@@ -1,0 +1,75 @@
+Kube Credential - Issuance Service
+----------------------------------
+
+This repository contains the Node.js + Express + TypeScript microservice for credential issuance in the Kube Credential system.
+
+Exposes a REST API to issue credentials in JSON format.
+
+Returns which worker handled the request (worker-1 for assignment purposes).
+
+Prevents duplicate credential issuance.
+
+
+🚀 Live Endpoint
+----------------
+
+If deployed on Render, the API is available at:
+https://kube-credential-issuance-service-em73.onrender.com
+
+⚠️ May take 5–10 seconds to initialize on first request.
+
+
+
+🛠 Installation
+-------------
+
+Clone the repository:
+
+git clone https://github.com/krishnapriya-ua/kube-credential-issuance-service.git
+cd issuance-service
+
+
+Install dependencies:
+
+npm install
+npm i -D tsx
+
+
+Run service:
+
+npx tsx src/index.ts
+
+
+The service listens on the port defined by process.env.PORT or defaults to 3000.
+Also 
+.env file add
+MONGOURI = your mongodburi
+
+🧪 Unit Testing
+
+Uses Jest for unit tests.
+
+Run tests with:
+
+npm run test
+
+
+⚠️ Note: To run tests locally, you may need to adjust the import in issuanceController.ts:
+
+// Change
+import Credential from './Credential.js';
+// To
+import Credential from './Credential';
+
+🐳 Docker
+
+This service is containerized using Docker.
+
+Build image:
+
+docker build -t <dockerhub-username>/issuance-service:dev .
+
+
+Run container locally:
+
+docker run -p 3000:3000 <dockerhub-username>/issuance-service:dev
